@@ -7,21 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AD17AE572B6C3E0200051C0F /* FormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD17AE562B6C3E0200051C0F /* FormViewController.swift */; };
+		AD17AE592B6C4B0400051C0F /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD17AE582B6C4B0400051C0F /* CalendarViewController.swift */; };
 		AD3A35182B6C17740092333D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3A35172B6C17740092333D /* AppDelegate.swift */; };
 		AD3A351A2B6C17740092333D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3A35192B6C17740092333D /* SceneDelegate.swift */; };
-		AD3A351C2B6C17740092333D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3A351B2B6C17740092333D /* ViewController.swift */; };
+		AD3A351C2B6C17740092333D /* ActivitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3A351B2B6C17740092333D /* ActivitiesViewController.swift */; };
 		AD3A35212B6C17750092333D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD3A35202B6C17750092333D /* Assets.xcassets */; };
 		AD3A35242B6C17750092333D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD3A35222B6C17750092333D /* LaunchScreen.storyboard */; };
+		AD3A352F2B6C1F920092333D /* MyActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3A352E2B6C1F920092333D /* MyActivity.swift */; };
+		AD3A35312B6C1FB70092333D /* ActivityFrequency.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3A35302B6C1FB70092333D /* ActivityFrequency.swift */; };
+		AD3A35332B6C1FFF0092333D /* ActivitiesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3A35322B6C1FFF0092333D /* ActivitiesViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AD17AE562B6C3E0200051C0F /* FormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormViewController.swift; sourceTree = "<group>"; };
+		AD17AE582B6C4B0400051C0F /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		AD3A35142B6C17740092333D /* PracticeMakesPerfect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PracticeMakesPerfect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD3A35172B6C17740092333D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AD3A35192B6C17740092333D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		AD3A351B2B6C17740092333D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		AD3A351B2B6C17740092333D /* ActivitiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesViewController.swift; sourceTree = "<group>"; };
 		AD3A35202B6C17750092333D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AD3A35232B6C17750092333D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AD3A35252B6C17750092333D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AD3A352E2B6C1F920092333D /* MyActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyActivity.swift; sourceTree = "<group>"; };
+		AD3A35302B6C1FB70092333D /* ActivityFrequency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityFrequency.swift; sourceTree = "<group>"; };
+		AD3A35322B6C1FFF0092333D /* ActivitiesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +64,51 @@
 		AD3A35162B6C17740092333D /* PracticeMakesPerfect */ = {
 			isa = PBXGroup;
 			children = (
+				AD3A35342B6C20340092333D /* Controllers */,
+				AD3A352D2B6C1F5D0092333D /* Model */,
+				AD3A352C2B6C1F550092333D /* ViewModel */,
+				AD3A352B2B6C1F490092333D /* View */,
 				AD3A35172B6C17740092333D /* AppDelegate.swift */,
 				AD3A35192B6C17740092333D /* SceneDelegate.swift */,
-				AD3A351B2B6C17740092333D /* ViewController.swift */,
 				AD3A35202B6C17750092333D /* Assets.xcassets */,
 				AD3A35222B6C17750092333D /* LaunchScreen.storyboard */,
 				AD3A35252B6C17750092333D /* Info.plist */,
 			);
 			path = PracticeMakesPerfect;
+			sourceTree = "<group>";
+		};
+		AD3A352B2B6C1F490092333D /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AD3A352C2B6C1F550092333D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				AD3A35322B6C1FFF0092333D /* ActivitiesViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		AD3A352D2B6C1F5D0092333D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AD3A352E2B6C1F920092333D /* MyActivity.swift */,
+				AD3A35302B6C1FB70092333D /* ActivityFrequency.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		AD3A35342B6C20340092333D /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				AD3A351B2B6C17740092333D /* ActivitiesViewController.swift */,
+				AD17AE562B6C3E0200051C0F /* FormViewController.swift */,
+				AD17AE582B6C4B0400051C0F /* CalendarViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -134,8 +181,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AD3A351C2B6C17740092333D /* ViewController.swift in Sources */,
+				AD3A351C2B6C17740092333D /* ActivitiesViewController.swift in Sources */,
 				AD3A35182B6C17740092333D /* AppDelegate.swift in Sources */,
+				AD3A352F2B6C1F920092333D /* MyActivity.swift in Sources */,
+				AD3A35332B6C1FFF0092333D /* ActivitiesViewModel.swift in Sources */,
+				AD3A35312B6C1FB70092333D /* ActivityFrequency.swift in Sources */,
+				AD17AE592B6C4B0400051C0F /* CalendarViewController.swift in Sources */,
+				AD17AE572B6C3E0200051C0F /* FormViewController.swift in Sources */,
 				AD3A351A2B6C17740092333D /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
