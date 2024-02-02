@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		AD17AE572B6C3E0200051C0F /* FormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD17AE562B6C3E0200051C0F /* FormViewController.swift */; };
 		AD17AE592B6C4B0400051C0F /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD17AE582B6C4B0400051C0F /* CalendarViewController.swift */; };
+		AD17AE5B2B6C61C400051C0F /* ActivityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD17AE5A2B6C61C400051C0F /* ActivityTableViewCell.swift */; };
 		AD3A35182B6C17740092333D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3A35172B6C17740092333D /* AppDelegate.swift */; };
 		AD3A351A2B6C17740092333D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3A35192B6C17740092333D /* SceneDelegate.swift */; };
 		AD3A351C2B6C17740092333D /* ActivitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3A351B2B6C17740092333D /* ActivitiesViewController.swift */; };
@@ -22,6 +23,7 @@
 /* Begin PBXFileReference section */
 		AD17AE562B6C3E0200051C0F /* FormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormViewController.swift; sourceTree = "<group>"; };
 		AD17AE582B6C4B0400051C0F /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		AD17AE5A2B6C61C400051C0F /* ActivityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTableViewCell.swift; sourceTree = "<group>"; };
 		AD3A35142B6C17740092333D /* PracticeMakesPerfect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PracticeMakesPerfect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD3A35172B6C17740092333D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AD3A35192B6C17740092333D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 		AD3A352B2B6C1F490092333D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				AD17AE5A2B6C61C400051C0F /* ActivityTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -189,6 +192,7 @@
 				AD17AE592B6C4B0400051C0F /* CalendarViewController.swift in Sources */,
 				AD17AE572B6C3E0200051C0F /* FormViewController.swift in Sources */,
 				AD3A351A2B6C17740092333D /* SceneDelegate.swift in Sources */,
+				AD17AE5B2B6C61C400051C0F /* ActivityTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,6 +343,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -366,6 +371,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

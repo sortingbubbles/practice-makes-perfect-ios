@@ -54,8 +54,8 @@ class CalendarViewController: UIViewController, UICalendarViewDelegate {
     multiDaySelection.selectedDates = parseSelectedDates()
     calendarView.selectionBehavior = multiDaySelection
     calendarView.fontDesign = .rounded
-    view.backgroundColor = .white
-    calendarView.tintColor = UIColor.red
+    view.backgroundColor = UIColor.systemBackground
+    calendarView.tintColor = UIColor.tintColor
   }
 
   

@@ -44,11 +44,26 @@ class ActivitiesViewController: UIViewController, UITableViewDelegate, UITableVi
   }
 
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let activity = items[indexPath.row]
-    let cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
-    cell.textLabel?.text = activity.name
+    let cell = ActivityTableViewCell(style: .default, reuseIdentifier: ActivityTableViewCell.identifier)
+
+    cell.titleLabel.text = items[indexPath.row].name
+    cell.titleLabel.textColor = UIColor.label
+    cell.iconImageView.image = UIImage(systemName: items[indexPath.row].icon)
+    cell.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
+
     return cell
+
   }
+  func tableView(_ tableView: UITableView,
+             heightForRowAt indexPath: IndexPath) -> CGFloat {
+     // Make the first row larger to accommodate a custom cell.
+        return 70
+
+
+
+  }
+
+
 
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     selectedIndex = indexPath.row
@@ -65,6 +80,8 @@ class ActivitiesViewController: UIViewController, UITableViewDelegate, UITableVi
           tableView.deleteRows(at: [indexPath], with: .fade)
       }
   }
+
+
 
   func formViewControllerDidSubmit(name: String, icon: String) {
     let newItem = MyActivity(name: name, frequency: ActivityFrequency.daily, icon: icon, selectedDates: [])
@@ -106,15 +123,15 @@ class ActivitiesViewController: UIViewController, UITableViewDelegate, UITableVi
 
     let appearance = UINavigationBarAppearance()
     appearance.configureWithOpaqueBackground()
-    appearance.backgroundColor = UIColor.black
-    appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+    appearance.backgroundColor = UIColor.secondarySystemBackground
+    appearance.titleTextAttributes = [.foregroundColor: UIColor.label]
     navigationItem.standardAppearance = appearance
     navigationItem.scrollEdgeAppearance = appearance
     navigationItem.compactAppearance = appearance 
 
 
     let buttonAppearance = UIBarButtonItemAppearance()
-    buttonAppearance.normal.titleTextAttributes = [.foregroundColor: UIColor.white]
+    buttonAppearance.normal.titleTextAttributes = [.foregroundColor: UIColor.label]
     navigationItem.standardAppearance?.buttonAppearance = buttonAppearance
     navigationItem.compactAppearance?.buttonAppearance = buttonAppearance
 
