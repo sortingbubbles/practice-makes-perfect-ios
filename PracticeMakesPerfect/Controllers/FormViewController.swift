@@ -5,14 +5,14 @@ protocol FormViewControllerDelegate: AnyObject {
   func formViewControllerDidSubmit(name: String, icon: String)
 }
 
-let availableIconNames = ["figure.run", "bicycle", "volleyball", "soccerball", "tennis.racket", "popcorn", "book", "gamecontroller.fill", "character.bubble", "cooktop", "figure.walk"]
+let availableIconNames = ["figure.run", "volleyball", "soccerball", "tennis.racket", "popcorn", "book", "gamecontroller.fill", "character.bubble", "cooktop", "figure.walk"]
 
 class FormViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
   var selectedIcon = availableIconNames.first
 
   private let nameTextField: UITextField = {
     let textField = UITextField()
-    textField.placeholder = "Name"
+    textField.placeholder = "Activity"
     textField.borderStyle = .roundedRect
     return textField
   }()
@@ -37,36 +37,50 @@ class FormViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     return button
   }()
 
+  private let headerLabel: UILabel = {
+    let label = UILabel()
+    label.text = "Add an activity"
+    label.font = UIFont.boldSystemFont(ofSize: 20)
+    label.textAlignment = .center
+    return label
+  }()
+
   weak var delegate: FormViewControllerDelegate?
 
   override func viewDidLoad() {
     super.viewDidLoad()
+    self.navigationItem.title = "Your Header Title"
     view.backgroundColor = UIColor.systemBackground
+
     pickerView.delegate = self
     pickerView.dataSource = self
+    view.addSubview(headerLabel)
     view.addSubview(nameTextField)
     view.addSubview(pickerView)
     view.addSubview(submitButton)
     view.addSubview(cancelButton)
 
+    headerLabel.translatesAutoresizingMaskIntoConstraints = false
     nameTextField.translatesAutoresizingMaskIntoConstraints = false
     pickerView.translatesAutoresizingMaskIntoConstraints = false
     submitButton.translatesAutoresizingMaskIntoConstraints = false
     cancelButton.translatesAutoresizingMaskIntoConstraints = false
 
     NSLayoutConstraint.activate([
-      nameTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
-      nameTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-      nameTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+      headerLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 40),
+      headerLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
       nameTextField.heightAnchor.constraint(equalToConstant: 60),
-      pickerView.heightAnchor.constraint(equalToConstant: 60),
-      pickerView.topAnchor.constraint(equalTo: nameTextField.bottomAnchor, constant: 20),
-      pickerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+      nameTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+      nameTextField.topAnchor.constraint(equalTo: headerLabel.topAnchor, constant: 60),
+      nameTextField.widthAnchor.constraint(equalToConstant: 250),
+      pickerView.heightAnchor.constraint(equalToConstant: 80),
+      pickerView.leadingAnchor.constraint(equalTo: nameTextField.trailingAnchor, constant: 8),
+      pickerView.centerYAnchor.constraint(equalTo: nameTextField.centerYAnchor),
       pickerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-      submitButton.topAnchor.constraint(equalTo: pickerView.bottomAnchor, constant: 40),
-      submitButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 80),
       cancelButton.topAnchor.constraint(equalTo: pickerView.bottomAnchor, constant: 40),
-      cancelButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -80),
+      cancelButton.rightAnchor.constraint(equalTo: view.leftAnchor, constant: 80),
+      submitButton.topAnchor.constraint(equalTo: pickerView.bottomAnchor, constant: 40),
+      submitButton.leftAnchor.constraint(equalTo:view.rightAnchor, constant: -80),
     ])
   }
 
@@ -86,18 +100,23 @@ class FormViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
   }
 
   func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
-    let customView = UIView()
+      let customView = UIView()
 
-    let imageView = UIImageView(frame: CGRect(x: 0, y: 10, width: 40, height: 40))
-    imageView.image = UIImage(systemName: availableIconNames[row])
-    customView.addSubview(imageView)
+      let imageView = UIImageView()
+      imageView.image = UIImage(systemName: availableIconNames[row])
+      imageView.translatesAutoresizingMaskIntoConstraints = false
+      customView.addSubview(imageView)
 
-    let label = UILabel(frame: CGRect(x: 80, y: 10, width: 200, height: 40))
-    label.text = availableIconNames[row]
-    customView.addSubview(label)
+      NSLayoutConstraint.activate([
+          imageView.centerXAnchor.constraint(equalTo: customView.centerXAnchor),
+          imageView.centerYAnchor.constraint(equalTo: customView.centerYAnchor),
+          imageView.widthAnchor.constraint(equalToConstant: 40),
+          imageView.heightAnchor.constraint(equalToConstant: 40),
+      ])
 
-    return customView
+      return customView
   }
+
 
   func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
     return availableIconNames[row]
