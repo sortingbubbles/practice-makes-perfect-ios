@@ -23,12 +23,13 @@ class ActivitiesViewController: UIViewController, UITableViewDelegate, UITableVi
     view.addSubview(tableView)
     tableView.translatesAutoresizingMaskIntoConstraints = false
     tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-    tableView.frame = CGRect(
-      x: 0,
-      y: 0,
-      width: UIScreen.main.bounds.width,
-      height: UIScreen.main.bounds.height
-    )
+
+    NSLayoutConstraint.activate([
+        tableView.topAnchor.constraint(equalTo: view.topAnchor),
+        tableView.leftAnchor.constraint(equalTo: view.leftAnchor),
+        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+        tableView.rightAnchor.constraint(equalTo: view.rightAnchor)
+    ])
     tableView.delegate = self
     tableView.dataSource = self
     $items
@@ -49,8 +50,8 @@ class ActivitiesViewController: UIViewController, UITableViewDelegate, UITableVi
     cell.titleLabel.text = items[indexPath.row].name
     cell.titleLabel.textColor = UIColor.label
     cell.iconImageView.image = UIImage(systemName: items[indexPath.row].icon)
+    cell.selectionStyle = UITableViewCell.SelectionStyle.none
     cell.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
-
     return cell
 
   }

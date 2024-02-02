@@ -105,4 +105,22 @@ extension CalendarViewController: UICalendarSelectionMultiDateDelegate {
     }
     return false
   }
+
+  func containsSameDate(dateComponentsArray: [DateComponents], targetDateComponents: DateComponents) -> Bool {
+      guard let targetYear = targetDateComponents.year,
+            let targetMonth = targetDateComponents.month,
+            let targetDay = targetDateComponents.day else {
+          return false
+      }
+
+      return dateComponentsArray.contains { parsedDateComponents in
+          guard let parsedYear = parsedDateComponents.year,
+                let parsedMonth = parsedDateComponents.month,
+                let parsedDay = parsedDateComponents.day else {
+              return false
+          }
+
+          return parsedYear == targetYear && parsedMonth == targetMonth && parsedDay == targetDay
+      }
+  }
 }
