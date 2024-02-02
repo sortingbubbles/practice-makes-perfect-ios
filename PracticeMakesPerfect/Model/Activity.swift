@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct MyActivity {
+struct Activity {
   let name: String
   let icon: String
   let selectedDates: [String]

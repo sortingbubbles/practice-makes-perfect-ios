@@ -8,28 +8,27 @@
 import UIKit
 
 protocol CalendarDelegate: AnyObject {
-    func didSelectDate(_ date: String)
-    func didDeselectDate(_ date: String)
+  func didSelectDate(_ date: String)
+  func didDeselectDate(_ date: String)
 }
 
 class CalendarViewController: UIViewController, UICalendarViewDelegate {
   weak var delegate: CalendarDelegate?
-  private let activity: MyActivity
+  private let activity: Activity
   var calendarView: UICalendarView = {
     let myCalendar = UICalendarView()
     myCalendar.calendar = Calendar(identifier: .gregorian)
     return myCalendar
   }()
 
-  init(activity: MyActivity) {
-         self.activity = activity
-         super.init(nibName: nil, bundle: nil)
-     }
+  init(activity: Activity) {
+    self.activity = activity
+    super.init(nibName: nil, bundle: nil)
+  }
 
-     required init?(coder: NSCoder) {
-         fatalError("init(coder:) has not been implemented")
-     }
-
+  required init?(coder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -67,10 +66,10 @@ class CalendarViewController: UIViewController, UICalendarViewDelegate {
     dateFormatter.dateFormat = "yyyy-MM-dd"
 
     for dateString in selectedDates {
-        if let date = dateFormatter.date(from: dateString) {
-            let components = Calendar(identifier: .gregorian).dateComponents([.year, .month, .day], from: date)
-            dateComponents.append(components)
-        }
+      if let date = dateFormatter.date(from: dateString) {
+        let components = Calendar(identifier: .gregorian).dateComponents([.year, .month, .day], from: date)
+        dateComponents.append(components)
+      }
     }
 
     return dateComponents
@@ -79,16 +78,13 @@ class CalendarViewController: UIViewController, UICalendarViewDelegate {
 }
 
 func transformDateComponent(dateComponents: DateComponents) -> String {
-  // Create a DateFormatter
   let dateFormatter = DateFormatter()
   dateFormatter.dateFormat = "yyyy-MM-dd"
 
-  // Convert DateComponents to Date
   if let date = dateComponents.date {
-      // Convert Date to String
-      return dateFormatter.string(from: date)
+    return dateFormatter.string(from: date)
   } else {
-      return ""
+    return ""
   }
 }
 
@@ -101,5 +97,12 @@ extension CalendarViewController: UICalendarSelectionMultiDateDelegate {
     delegate?.didDeselectDate(transformDateComponent(dateComponents: dateComponents))
   }
 
+  func multiDateSelection(_ selection: UICalendarSelectionMultiDate, canSelectDate dateComponents: DateComponents) -> Bool {
+    let currentDate = Calendar.current.dateComponents([.year, .month, .day], from: Date())
+    if let providedDate = Calendar.current.date(from: dateComponents),
+        providedDate <= Calendar.current.date(from: currentDate)! {
+        return true
+    }
+    return false
+  }
 }
-

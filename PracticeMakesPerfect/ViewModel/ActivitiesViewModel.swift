@@ -8,32 +8,27 @@
 import Foundation
 
 class ActivitiesViewModel {
-  private var activities: [MyActivity] = [
-    MyActivity(name: "cycling", frequency: ActivityFrequency.daily, icon: "bicycle", selectedDates: ["2024-01-01", "2024-02-01"]),
-    MyActivity(name:"spanish", frequency: ActivityFrequency.daily, icon: "character.bubble.fill", selectedDates: ["2024-01-01", "2024-02-01"]),
-    MyActivity(name:"climbing", frequency: ActivityFrequency.monthly, icon: "figure.climbing", selectedDates: ["2024-01-01", "2024-02-01"])
+  private var activities: [Activity] = [
+    Activity(
+      name: "cycling",
+      icon: "bicycle",
+      selectedDates: ["2024-01-06", "2024-02-01"]
+    ),
+    Activity(name:"climbing",
+      icon: "figure.climbing",
+      selectedDates: ["2024-01-07", "2024-02-02"]
+    )
   ]
 
 
-  func addActivity(name: String, frequency: ActivityFrequency, icon: String) {
-    let newActivity = MyActivity(name: name, frequency: frequency, icon: icon, selectedDates: [])
+  func addActivity(name: String, icon: String) {
+    let newActivity = Activity(name: name, icon: icon, selectedDates: [])
     activities.append(newActivity)
   }
 
 
-  func getActivities() -> [MyActivity] {
+  func getActivities() -> [Activity] {
     return activities
-  }
-
-
-  func getFrequency(for name: String) -> Optional<ActivityFrequency> {
-    let filteredActivities = activities.filter { $0.name.lowercased() == name.lowercased() }
-
-    guard let activity = filteredActivities.first else {
-      return nil
-    }
-
-    return activity.frequency
   }
 
   func getIcon(for name: String) -> Optional<String> {
