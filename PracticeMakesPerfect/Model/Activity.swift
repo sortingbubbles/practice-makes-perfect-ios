@@ -9,7 +9,6 @@ import Foundation
 
 struct MyActivity {
   let name: String
-  let frequency: ActivityFrequency
   let icon: String
   let selectedDates: [String]
 }
